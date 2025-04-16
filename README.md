@@ -1,5 +1,3 @@
-Below is a sample final **README.md** you can include in your GitHub repository. This document covers the project overview, setup instructions, usage details, testing guidelines, and final notes. Feel free to adjust any details (such as paths, credentials, or optional enhancements) to match your specific project implementation.
-
 ---
 
 # Bidirectional Data Ingestion Tool
