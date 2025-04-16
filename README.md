@@ -1,3 +1,5 @@
+
+
 ---
 
 # Bidirectional Data Ingestion Tool
@@ -40,6 +42,11 @@ The tool allows users to dynamically retrieve tables and columns from ClickHouse
   - **Import:** Read a CSV file and insert its data into a specified ClickHouse table.
 - **Schema Discovery:**  
   - List available tables and columns from the ClickHouse database.
+- **Data Preview (Optional):**  
+  - Preview the first 100 rows of a CSV file before performing a full data import.
+- **(Optional Bonus) Multi-Table Join:**  
+  - Supports the possibility of joining data from multiple tables (pseudocode provided).
+
 ---
 
 ## Prerequisites
@@ -70,6 +77,8 @@ Create and activate a Python virtual environment:
 python -m venv venv
 # On Windows:
 venv\Scripts\activate
+# On Unix/Linux or macOS:
+source venv/bin/activate
 ```
 
 Install the required packages:
@@ -98,10 +107,11 @@ This command:
 - Maps port 9000 (for native protocol connections) and 8123 (for HTTP).
 - Sets the default user (`default`) and password (`mypassword`).
 
-
+---
 
 ## Project Structure
 
+```
 data_ingestion_tool/
 ├── app.py                      # Main Flask application with endpoints for ingestion
 ├── clickhouse_client.py        # Module for connecting to ClickHouse and query utilities
@@ -116,6 +126,9 @@ data_ingestion_tool/
     │   └── style.css           # CSS styles
     └── js/
         └── main.js             # JavaScript for the UI interactions
+```
+
+---
 
 ## Usage Instructions
 
@@ -192,7 +205,7 @@ You should see output like:
    In Flat File mode, click the **Preview Data** button.  
    The application will display the first 100 rows (or fewer) of the CSV in an HTML table, allowing you to verify the contents before importing.
 
-
+---
 
 ## Testing
 
@@ -212,12 +225,27 @@ You should see output like:
 - **Error Scenarios:**  
   Test with incorrect connection details or improperly formatted CSV files to ensure your error handling is robust.
 
-
+---
 
 ## Error Handling
 
 - Each endpoint returns a JSON response with `success: true` on success or `success: false` with an `error` message on failure.
 - The UI displays status messages based on these responses to help the user correct any issues (e.g., invalid file path, connection errors, or type mismatches).
 
+---
 
+## Final Steps
 
+1. **Final Testing:**  
+   Ensure that all functionalities work correctly:  
+   - ClickHouse → CSV export  
+   - CSV → ClickHouse import  
+   - Data preview (if implemented)
+
+2. **Update Documentation:**  
+   Ensure this README.md accurately reflects how to set up and use the tool.
+
+3. **Commit and Push:**  
+   Commit your final changes to your Git repository and push to GitHub.
+
+---
