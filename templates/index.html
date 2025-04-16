@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bidirectional Data Ingestion Tool</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="/static/js/main.js" defer></script>
+</head>
+<body>
+  <h1>Bidirectional Data Ingestion Tool</h1>
+
+  <!-- Data Source Selection -->
+  <div class="section">
+    <label for="data-source">Select Data Source:</label>
+    <select id="data-source">
+      <option value="clickhouse">ClickHouse</option>
+      <option value="flatfile">Flat File</option>
+    </select>
+  </div>
+
+  <!-- ClickHouse Configuration -->
+  <div id="clickhouse-config" class="section">
+    <h2>ClickHouse Configuration</h2>
+    <!-- Default values to simplify testing -->
+    <input type="text" id="ch-host" placeholder="Host" value="localhost">
+    <input type="number" id="ch-port" placeholder="Port" value="9000">
+    <input type="text" id="ch-database" placeholder="Database" value="default">
+    <input type="text" id="ch-user" placeholder="User" value="default">
+    <input type="text" id="ch-jwt" placeholder="JWT Token (Password)" value="mypassword">
+    <button id="connect-ch">Connect</button>
+  </div>
+
+  <!-- Flat File Configuration -->
+  <div id="flatfile-config" class="section" style="display: none;">
+    <h2>Flat File Configuration</h2>
+    <input type="text" id="file-path" placeholder="File path (e.g., C:\path\to\sample_data.csv)">
+    <input type="text" id="file-delimiter" placeholder="Delimiter" value=",">
+    <button id="load-file">Load File</button>
+  </div>
+
+  <!-- Schema and Column Selection -->
+  <div id="schema-selection" class="section">
+    <h2>Select Table &amp; Columns</h2>
+    <div id="table-list">
+      <!-- Tables from ClickHouse will be listed here -->
+    </div>
+    <div id="column-list">
+      <!-- Column checkboxes will be dynamically created here -->
+    </div>
+    <!-- Data Preview & Ingestion -->
+    <button id="preview-data">Preview Data</button>
+    <button id="start-ingestion">Start Ingestion</button>
+  </div>
+
+  <!-- Preview Data Display -->
+  <div id="preview-area" class="section">
+    <!-- Preview data from CSV will be displayed here -->
+  </div>
+
+  <!-- Status and Result Display -->
+  <div id="status-area" class="section">
+    <!-- Status messages will appear here -->
+  </div>
+  <div id="result-area" class="section">
+    <!-- Final results such as record counts will appear here -->
+  </div>
+</body>
+</html>
